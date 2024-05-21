@@ -1,0 +1,89 @@
+body{
+    background-color: #045c15;
+}
+
+.side-navbar{
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    margin-left: -300px;
+    background-color: whitesmoke;
+    transition: 0.9s;
+}
+
+.side-navbar.active-nav{
+    margin-left: 0;
+}
+
+
+.my-container{
+    transition: 0.9s;
+}
+
+.navbar{
+    height: 30px;
+    border-radius: 10px;
+}
+
+.active-cont{
+    margin-left: 250px;
+    transition: 0.9s;
+}
+
+#iconHamburger{
+    font-size: 28px;
+    margin-top: -25px;
+}
+
+#perfil{
+    font-size: 20px;
+    margin-top: -10px;
+}
+
+#iconAssist{
+    font-size: 28px;
+}
+
+
+#logo{
+    font-size: 30px;
+    margin-left: 30px;
+    padding-top: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 1px 2px;
+}
+
+#slogan{
+    font-size: 18px;
+    margin-left: 30px;
+    margin-top: -15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#icon{
+    font-size: 40px;
+    margin-left: 10px;   
+}
+
+#titulo-menu{
+    margin-left: 10px;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.links{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    
+}
+
+.links span{
+    color: black;
+    
+}
+
+#link-span{
+    text-decoration: none;
+}
+
