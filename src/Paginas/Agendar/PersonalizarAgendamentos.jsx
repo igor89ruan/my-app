@@ -1,14 +1,23 @@
 import { Container, Card, Button, Table, Form} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 function PersonalizarAgendamentos() {
     
-    const listaAgendamentos = [
-        {id:1, nome:'Igor',cpf:'123456789',contato:'123456789',data:'01/01/2022'},
-        {id:2, nome:'Igor',cpf:'123456789',contato:'123456789',data:'01/01/2022'},
-        {id:3, nome:'Igor',cpf:'123456789',contato:'123456789',data:'01/01/2022'}
-    ]
+    const [listaAgendamentos, setListaAgendamentos] = useState([]);
+
+    useEffect(() => {
+        const listaSalva = localStorage.getItem('agendamentos');
+        if (listaSalva!== null) {
+            setListaAgendamentos(JSON.parse(listaSalva));
+        }}, []);
+
+    const handleExcluir = (id) => {
+        const novaLista = listaAgendamentos.filter((agendamento) => agendamento.id !== id);
+        setListaAgendamentos(novaLista);
+        localStorage.setItem('agendamentos', JSON.stringify(novaLista));
+    }
 
     return (
         
@@ -39,7 +48,9 @@ function PersonalizarAgendamentos() {
                         </thead>
                         <tbody>
 
-                            {listaAgendamentos.map((agendamento) => (
+                            {
+                            listaAgendamentos.length<= 0 ? (<tr><td>Não existem agendamentos</td></tr>):
+                            listaAgendamentos.map((agendamento) => (
                                 <tr>
                                     <td>{agendamento.id}</td>
                                     <td>{agendamento.nome}</td>
@@ -47,8 +58,8 @@ function PersonalizarAgendamentos() {
                                     <td>{agendamento.contato}</td>
                                     <td>{agendamento.data}</td>
                                     <td>
-                                        <Link className='ml-2 btn btn-warning' Link={'./VisualizarAgendamentos'}> <FaEdit/> Editar</Link>
-                                        <Link className= 'ml-2 btn btn-danger'> <FaTrash/> Excluir</Link>
+                                        <Link className='ml-2 btn btn-warning' onClick={() => './AgendarServicos.jsx'}> <FaEdit/> Editar</Link>
+                                        <Link className= 'ml-2 btn btn-danger' onClick={() => handleExcluir(agendamento.id)}> <FaTrash/> Excluir</Link>
                                     </td>
                                 </tr>
                             ))}
