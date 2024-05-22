@@ -1,66 +1,80 @@
 import './AgendarCss/VisualizarAgendamentos.css';
-import { Card, Container,Form, Table, Button} from 'react-bootstrap';
-import {FaEdit, FaTrash} from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Card, Container, Table } from 'react-bootstrap';
+import { useEffect, useState } from 'react';
 
 function VisualizarAgendamentos() {
 
-    const listaAgendamentos = [
-        {id:1, nome:'Igor',cpf:'123456789',contato:'123456789',data:'01/01/2022'},
-        {id:2, nome:'Igor',cpf:'123456789',contato:'123456789',data:'01/01/2022'},
-        {id:3, nome:'Igor',cpf:'123456789',contato:'123456789',data:'01/01/2022'}
-    ]
+    const [listaAgendamentos, setListaAgendamentos] = useState([]);
+
+    useEffect(() => {
+        const listaSalva = localStorage.getItem('agendamentos');
+        if (listaSalva !== null) {
+            setListaAgendamentos(JSON.parse(listaSalva));
+        }
+    }, []);
+
     return (
         <Container className="container">
-            <Card className="mt-4"> 
+            <Card className="mt-4">
                 <h1 id="titulo">Visualizar Agendamento</h1>
 
                 <Card.Body>
-                    <div className="pesquisa">
-                        <Form.Control type="text" placeholder="Pesquisar Agendamento" id='input'/>
-                        <Button>PESQUISAR</Button>
-                    </div>
-                        
-                                
-                            
-                        
-                    
-                    <Table striped bordered hover>
+                    <h1>Dados Pessoais</h1>
+                    <Table striped>
                         <thead>
                             <tr>
-                            <th>ID</th>
-                            <th>NOME</th>
-                            <th>CPF</th>
-                            <th>CONTATO</th>
-                            <th>DATA</th>
-                            <th>ACAO</th>
+                                <th>ID</th>
+                                <th>NOME</th>
+                                <th>CPF</th>
+                                <th>CONTATO</th>
+                                <th>ENDEREÇO</th>
+                                <th>NUMERO</th>
+                                <th>BAIRRO</th>
+                                <th>CIDADE</th>
                             </tr>
                         </thead>
                         <tbody>
-
                             {listaAgendamentos.map((agendamento) => (
-                                <tr>
+                                <tr key={agendamento.id}>
                                     <td>{agendamento.id}</td>
                                     <td>{agendamento.nome}</td>
                                     <td>{agendamento.cpf}</td>
                                     <td>{agendamento.contato}</td>
-                                    <td>{agendamento.data}</td>
-                                    <td>
-                                        <Link className='ml-2 btn btn-warning'> <FaEdit/> Editar</Link>
-                                        <Link className= 'ml-2 btn btn-danger'> <FaTrash/> Excluir</Link>
-                                    </td>
+                                    <td>{agendamento.endereco}</td>
+                                    <td>{agendamento.numero}</td>
+                                    <td>{agendamento.bairro}</td>
+                                    <td>{agendamento.cidade}</td>
                                 </tr>
                             ))}
-                            
                         </tbody>
                     </Table>
-
                     <div className='barra'></div>
-
-                    
+                    <h1>Detalhes do Serviço</h1>
+                    <Table striped>
+                        <thead>
+                            <tr>
+                                <th>TIPO DE SERVIÇO</th>
+                                <th>DATA</th>
+                                <th>HORARIO</th>
+                                <th>REFERENCIA ESPECIAIS</th>
+                                <th>DESCRIÇÃO DO SERVIÇO</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {listaAgendamentos.map((agendamento) => (
+                                <tr key={agendamento.id}>
+                                    <td>{agendamento.tipo}</td> {/* Aqui é 'tipo', não 'tiposervico' */}
+                                    <td>{agendamento.data}</td>
+                                    <td>{agendamento.horario}</td> {/* Aqui é 'horario', não 'horarioServico' */}
+                                    <td>{agendamento.referenciaespecial}</td>
+                                    <td>{agendamento.descricaoservico}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </Table>
                 </Card.Body>
             </Card>
-        </Container> 
+        </Container>
     );
 }
 

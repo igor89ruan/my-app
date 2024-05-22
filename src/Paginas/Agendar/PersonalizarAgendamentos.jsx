@@ -2,6 +2,7 @@ import { Container, Card, Button, Table, Form} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import './AgendarCss/PersonalizarAgendamentos.css';
 
 function PersonalizarAgendamentos() {
     
@@ -59,7 +60,7 @@ function PersonalizarAgendamentos() {
                                     <td>{agendamento.data}</td>
                                     <td>
                                         <Link className='ml-2 btn btn-warning' onClick={() => './AgendarServicos.jsx'}> <FaEdit/> Editar</Link>
-                                        <Link className= 'ml-2 btn btn-danger' onClick={() => handleExcluir(agendamento.id)}> <FaTrash/> Excluir</Link>
+                                        <Link className= 'ml-2 btn btn-danger' onClick={() => handleExcluir(agendamento.id)} id="excluir"> <FaTrash/> Excluir</Link>
                                     </td>
                                 </tr>
                             ))}
