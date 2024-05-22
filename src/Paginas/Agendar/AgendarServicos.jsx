@@ -69,26 +69,25 @@ function AgendarServicos() {
         const value = event.target.value;
         setEndereco(value);
         if(value) {
-            setErrors((prev) => ({...prev, contatoCadastro: ''}));
+            setErrors((prev) => ({...prev, enderecoCadastro: ''}));
         } else {
             if(value === '') {
-                setErrors((prev) => ({...prev, contatoCadastro: 'O campo precisa ser preenchido'}));
-            } else {
-                setErrors((prev) => ({...prev, contatoCadastro: 'Contato inválido'}));
-            }
-        }
+                setErrors((prev) => ({...prev, enderecoCadastro: 'O campo precisa ser preenchido'}));
+            } 
+
+        }                                ////////////////////////////////removi o else
     };
 
     const handleNumeroChange = (event) => {
         const value = event.target.value;
         setNumero(value);
         if(value) {
-            setErrors((prev) => ({...prev, contatoCadastro: ''}));
+            setErrors((prev) => ({...prev, numeroCadastro: ''}));
         } else {
             if(value === '') {
-                setErrors((prev) => ({...prev, contatoCadastro: 'O campo precisa ser preenchido'}));
+                setErrors((prev) => ({...prev, numeroCadastro: 'O campo precisa ser preenchido'}));
             } else {
-                setErrors((prev) => ({...prev, contatoCadastro: 'Contato inválido'}));
+                setErrors((prev) => ({...prev, numeroCadastro: 'Numero inválido'}));           ///////////////////////////////////////
             }
         }
     };
@@ -97,12 +96,12 @@ function AgendarServicos() {
         const value = event.target.value;
         setBairro(value);
         if(value) {
-            setErrors((prev) => ({...prev, contatoCadastro: ''}));
+            setErrors((prev) => ({...prev, bairroCadastro: ''}));
         } else {
             if(value === '') {
-                setErrors((prev) => ({...prev, contatoCadastro: 'O campo precisa ser preenchido'}));
+                setErrors((prev) => ({...prev, bairroCadastro: 'O campo precisa ser preenchido'}));
             } else {
-                setErrors((prev) => ({...prev, contatoCadastro: 'Contato inválido'}));
+                setErrors((prev) => ({...prev, bairroCadastro: ' Bairro inválido'}));
             }
         }
     };
@@ -111,12 +110,12 @@ function AgendarServicos() {
         const value = event.target.value;
         setCidade(value);
         if(value) {
-            setErrors((prev) => ({...prev, contatoCadastro: ''}));
+            setErrors((prev) => ({...prev, cidadeCadastro: ''}));
         } else {
             if(value === '') {
-                setErrors((prev) => ({...prev, contatoCadastro: 'O campo precisa ser preenchido'}));
+                setErrors((prev) => ({...prev, cidadeCadastro: 'O campo precisa ser preenchido'}));
             } else {
-                setErrors((prev) => ({...prev, contatoCadastro: 'Contato inválido'}));
+                setErrors((prev) => ({...prev, cidadeCadastro: 'Cidade inválida'}));
             }
         }
     };
@@ -125,12 +124,12 @@ function AgendarServicos() {
         const value = event.target.value;
         setTipoServico(value);
         if(value) {
-            setErrors((prev) => ({...prev, contatoCadastro: ''}));
+            setErrors((prev) => ({...prev, tipoServico: ''}));
         } else {
             if(value === '') {
-                setErrors((prev) => ({...prev, contatoCadastro: 'O campo precisa ser preenchido'}));
+                setErrors((prev) => ({...prev, tipoServico: 'O campo precisa ser preenchido'}));
             } else {
-                setErrors((prev) => ({...prev, contatoCadastro: 'Contato inválido'}));
+                setErrors((prev) => ({...prev, tipoServico: 'Tipo de Serviço inválido'}));
             }
         }
     };
@@ -167,12 +166,12 @@ function AgendarServicos() {
         const value = event.target.value;
         setReferencia(value);
         if(value) {
-            setErrors((prev) => ({...prev, horarioCadastro: ''}));
+            setErrors((prev) => ({...prev, referenciaServico: ''}));
         } else {
             if(value === '') {
-                setErrors((prev) => ({...prev, horarioCadastro: 'O campo precisa ser preenchido'}));
+                setErrors((prev) => ({...prev, referenciaServico: 'O campo precisa ser preenchido'}));
             } else {
-                setErrors((prev) => ({...prev, horarioCadastro: 'Horário inválido'}));
+                setErrors((prev) => ({...prev, referenciaServico: 'Referência inválida'}));
             }
         }
     };
@@ -181,12 +180,12 @@ function AgendarServicos() {
         const value = event.target.value;
         setDescricao(value);
         if(value) {
-            setErrors((prev) => ({...prev, horarioCadastro: ''}));
+            setErrors((prev) => ({...prev, descricaoServico: ''}));
         } else {
             if(value === '') {
-                setErrors((prev) => ({...prev, horarioCadastro: 'O campo precisa ser preenchido'}));
+                setErrors((prev) => ({...prev, descricaoServico: 'O campo precisa ser preenchido'}));
             } else {
-                setErrors((prev) => ({...prev, horarioCadastro: 'Horário inválido'}));
+                setErrors((prev) => ({...prev, descricaoServico: 'Descricão inválida'}));
             }
         }
     };
